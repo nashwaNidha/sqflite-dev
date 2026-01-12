@@ -226,7 +226,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
 /// Database helper that works on both mobile and desktop platforms
 class DatabaseHelper {
   static Database? _database;
