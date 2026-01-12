@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-01-12
+
+### Changed
+- Consolidated example code into single file (main.dart) for better visibility on pub.dev
+- Example now includes both UI and database helper code in one file
+
 ## [1.0.1] - 2025-01-12
 
 ### Changed
