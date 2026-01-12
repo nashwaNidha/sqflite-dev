@@ -1,0 +1,4 @@
+# Exclude example directory from pub publish
+# The example uses path dependencies which aren't allowed in published packages
+example/
+
