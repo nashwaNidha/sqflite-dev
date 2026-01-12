@@ -1,4 +1,13 @@
-# Exclude example directory from pub publish
-# The example uses path dependencies which aren't allowed in published packages
-example/
+# Exclude example package files that use path dependencies
+# But keep example/lib/main.dart for pub.dev scoring
+example/pubspec.yaml
+example/pubspec.lock
+example/android/
+example/ios/
+example/macos/
+example/windows/
+example/linux/
+example/web/
+example/build/
+example/test/
 

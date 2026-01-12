@@ -1357,11 +1357,24 @@ function escapeHtml(text) {
 
 /// Information about a registered database
 class DatabaseInfo {
+  /// Unique identifier for the database
   final String id;
+
+  /// The SQLite database instance
   final Database database;
+
+  /// File system path to the database file
   final String path;
+
+  /// Display name for the database in the workbench UI
   final String name;
 
+  /// Creates a new DatabaseInfo instance
+  ///
+  /// [id] - Unique identifier for the database
+  /// [database] - The SQLite database instance
+  /// [path] - File system path to the database file
+  /// [name] - Display name for the database in the workbench UI
   DatabaseInfo({
     required this.id,
     required this.database,
