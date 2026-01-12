@@ -1,6 +1,6 @@
 # sqflite_dev
 
-A developer dependency package that provides a web-based SQLite workbench for Flutter apps during development. Works with both `sqflite` (mobile) and `sqflite_common_ffi` (desktop).
+A developer dependency package that provides a web-based SQLite workbench for Flutter and pure Dart apps during development. Works with both `sqflite` (mobile) and `sqflite_common_ffi` (desktop).
 
 ![SQLite Workbench Web UI](https://raw.githubusercontent.com/sbrsubuvga/sqflite-dev/refs/heads/main/Screenshot%202026-01-12%20at%2012.44.06%E2%80%AFPM.png)
 
@@ -30,7 +30,7 @@ Add this package to your `dev_dependencies` in `pubspec.yaml`:
 
 ```yaml
 dev_dependencies:
-  sqflite_dev: ^1.0.3
+  sqflite_dev: ^1.0.4
 ```
 
 Then run:
@@ -194,15 +194,16 @@ sqflite_dev: Workbench server started!
 
 ## Security Considerations
 
-- ✅ Only works in **debug mode** (`kDebugMode`)
 - ✅ Should be in `dev_dependencies` (excluded from production builds)
 - ✅ Accessible only on your local network
+- ✅ User controls enablement via `webDebug` parameter
 - ⚠️ **Never use in production** - this is a development tool only
+- ⚠️ **Always set `webDebug: false` in production code** - even though it's in dev_dependencies, be explicit
 
 ## Troubleshooting
 
 ### Workbench doesn't start
-- Make sure you're running in **debug mode** (not release mode)
+- Make sure `webDebug: true` is set when calling `WorkbenchHelper.autoEnable()` or `enableWorkbench()`
 - Check that the package is in `dev_dependencies`
 - Verify the port isn't blocked by a firewall
 - Ensure the database is opened before calling `enableWorkbench()` or `WorkbenchHelper.autoEnable()`

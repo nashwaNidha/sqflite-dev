@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:path/path.dart' as path;
 import 'workbench_server.dart';
@@ -16,11 +15,6 @@ extension DatabaseWorkbench on Database {
   /// db.enableWorkbench(name: 'MainDB', port: 8080);
   /// ```
   void enableWorkbench({String? name, int? port}) {
-    if (!kDebugMode) {
-      print('sqflite_dev: Workbench is only available in debug mode');
-      return;
-    }
-
     // Get database path
     final dbPath = this.path;
     if (dbPath.isEmpty) {

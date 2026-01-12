@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-01-12
+
+### Changed
+- **BREAKING**: Removed Flutter dependency - package now works with both Flutter and pure Dart
+- Removed automatic debug mode checking - users now control workbench via `webDebug` parameter
+- Package no longer requires Flutter SDK, works in pure Dart environments
+
+### Fixed
+- Fixed `dart:ui` import error when used in pure Dart projects (e.g., with sqflite_orm)
+- Workbench now respects user's `webDebug` setting instead of automatically disabling in release mode
+
 ## [1.0.3] - 2025-01-12
 
 ### Changed

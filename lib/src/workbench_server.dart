@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_cors_headers/shelf_cors_headers.dart' as cors;
@@ -30,11 +29,6 @@ class WorkbenchServer {
     required String dbPath,
     String? name,
   }) {
-    if (!kDebugMode) {
-      print('sqflite_dev: Workbench is only available in debug mode');
-      return;
-    }
-
     _databases[dbId] = DatabaseInfo(
       id: dbId,
       database: database,
@@ -59,11 +53,6 @@ class WorkbenchServer {
 
   /// Start the web server
   Future<void> _startServer() async {
-    if (!kDebugMode) {
-      print('sqflite_dev: Workbench is only available in debug mode');
-      return;
-    }
-
     if (_server != null) {
       return; // Already running
     }
