@@ -2,6 +2,8 @@
 
 A developer dependency package that provides a web-based SQLite workbench for Flutter apps during development. Works with both `sqflite` (mobile) and `sqflite_common_ffi` (desktop).
 
+![SQLite Workbench Web UI](https://raw.githubusercontent.com/sbrsubuvga/sqflite-dev/refs/heads/main/Screenshot%202026-01-12%20at%2012.44.06%E2%80%AFPM.png)
+
 ## ⚠️ Important
 
 This package is **only for development use**. Add it to your `dev_dependencies`, not `dependencies`. It will not be included in production builds.
@@ -224,7 +226,7 @@ sqflite_dev: Workbench server started!
 
 ## License
 
-This package is provided as-is for development purposes.
+This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
