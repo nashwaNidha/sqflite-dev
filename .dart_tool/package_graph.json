@@ -11,7 +11,6 @@
         "path",
         "shelf",
         "shelf_cors_headers",
-        "shelf_static",
         "sqflite_common"
       ],
       "devDependencies": [
@@ -48,17 +47,6 @@
       "name": "path",
       "version": "1.9.1",
       "dependencies": []
-    },
-    {
-      "name": "shelf_static",
-      "version": "1.1.3",
-      "dependencies": [
-        "convert",
-        "http_parser",
-        "mime",
-        "path",
-        "shelf"
-      ]
     },
     {
       "name": "shelf_cors_headers",
@@ -185,24 +173,12 @@
       ]
     },
     {
-      "name": "mime",
-      "version": "2.0.0",
-      "dependencies": []
-    },
-    {
       "name": "http_parser",
       "version": "4.1.2",
       "dependencies": [
         "collection",
         "source_span",
         "string_scanner",
-        "typed_data"
-      ]
-    },
-    {
-      "name": "convert",
-      "version": "3.1.2",
-      "dependencies": [
         "typed_data"
       ]
     },
