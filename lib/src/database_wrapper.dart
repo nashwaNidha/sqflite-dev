@@ -32,7 +32,9 @@ extension DatabaseWorkbench on Database {
     }
 
     // Generate unique ID from path or use custom name
-    final dbId = webDebugName != null ? _sanitizeId(webDebugName) : _generateIdFromPath(dbPath);
+    final dbId = webDebugName != null
+        ? _sanitizeId(webDebugName)
+        : _generateIdFromPath(dbPath);
 
     // Update port if specified
     if (webDebugPort != null) {
