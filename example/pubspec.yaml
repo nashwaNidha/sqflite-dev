@@ -16,14 +16,15 @@ dependencies:
   sqflite_common_ffi: ^2.3.0
   path: ^1.9.0
   path_provider: ^2.1.0
+  # Note: sqflite_dev is in dependencies here only because it's used in lib/main.dart
+  # In real projects, sqflite_dev should be in dev_dependencies (not dependencies)
+  sqflite_dev:
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-  # Add sqflite_dev as a dev dependency (as it should be in real projects)
-  sqflite_dev:
-    path: ../
 
 flutter:
   uses-material-design: true

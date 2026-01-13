@@ -267,7 +267,6 @@ class DatabaseHelper {
       webDebugName: 'TodosDB',
     );
 
-    print('Database initialized at: $path');
   }
 
   /// Create database tables
