@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -262,7 +263,7 @@ class DatabaseHelper {
 
     // Enable workbench
     _database?.enableWorkbench(
-      webDebug: true,
+      webDebug: !kReleaseMode,
       webDebugPort: 8080,
       webDebugName: 'TodosDB',
     );
