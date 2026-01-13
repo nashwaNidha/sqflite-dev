@@ -30,7 +30,7 @@ Add this package to your `dev_dependencies` in `pubspec.yaml`:
 
 ```yaml
 dev_dependencies:
-  sqflite_dev: ^1.0.5
+  sqflite_dev: ^1.0.6
 ```
 
 Then run:
@@ -68,9 +68,8 @@ void main() async {
     },
   );
   
-  // Automatically enable workbench (similar to sqflite_orm's webDebug: true)
-  WorkbenchHelper.autoEnable(
-    db,
+  // Enable workbench
+  db.enableWorkbench(
     webDebug: true,
     webDebugPort: 8080,
     webDebugName: 'MyAppDB',
@@ -115,8 +114,12 @@ void main() async {
   // Open your database
   final db = await openDatabase('my_database.db');
   
-  // Enable workbench (only works in debug mode)
-  db.enableWorkbench();
+  // Enable workbench
+  db.enableWorkbench(
+    webDebug: true,
+    webDebugPort: 8080,
+    webDebugName: 'MyDatabase',
+  );
   
   runApp(MyApp());
 }
@@ -128,13 +131,13 @@ You can register multiple databases:
 
 ```dart
 final db1 = await openDatabase('main.db');
-db1.enableWorkbench(name: 'MainDB');
+db1.enableWorkbench(webDebugName: 'MainDB');
 
 final db2 = await openDatabase('cache.db');
-db2.enableWorkbench(name: 'CacheDB');
+db2.enableWorkbench(webDebugName: 'CacheDB');
 
 final db3 = await openDatabase('user.db');
-db3.enableWorkbench(name: 'UserDB');
+db3.enableWorkbench(webDebugName: 'UserDB');
 ```
 
 All databases will be accessible through the same web portal. Use the database selector in the header to switch between them.
@@ -144,11 +147,11 @@ All databases will be accessible through the same web portal. Use the database s
 By default, the workbench runs on port 8080. You can change it:
 
 ```dart
-// Using WorkbenchHelper
-WorkbenchHelper.autoEnable(db, webDebugPort: 3000);
+// Using enableWorkbench directly
+db.enableWorkbench(webDebugPort: 3000);
 
-// Or using enableWorkbench directly
-db.enableWorkbench(port: 3000);
+// Or using WorkbenchHelper
+WorkbenchHelper.autoEnable(db, webDebugPort: 3000);
 ```
 
 If the port is already in use, the server will try the next available port.

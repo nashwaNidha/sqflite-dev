@@ -6,15 +6,24 @@ import 'workbench_server.dart';
 extension DatabaseWorkbench on Database {
   /// Enable the SQLite workbench for this database
   ///
-  /// [name] - Optional custom name for the database in the workbench UI
-  /// [port] - Port number for the web server (default: 8080)
+  /// [webDebug] - Enable workbench (default: true)
+  /// [webDebugName] - Optional custom name for the database in the workbench UI
+  /// [webDebugPort] - Port number for the web server (default: 8080)
   ///
   /// Example:
   /// ```dart
   /// final db = await openDatabase('my_db.db');
-  /// db.enableWorkbench(name: 'MainDB', port: 8080);
+  /// db.enableWorkbench(webDebug: true, webDebugName: 'MainDB', webDebugPort: 8080);
   /// ```
-  void enableWorkbench({String? name, int? port}) {
+  void enableWorkbench({
+    bool webDebug = true,
+    String? webDebugName,
+    int? webDebugPort,
+  }) {
+    if (!webDebug) {
+      return;
+    }
+
     // Get database path
     final dbPath = this.path;
     if (dbPath.isEmpty) {
@@ -23,11 +32,11 @@ extension DatabaseWorkbench on Database {
     }
 
     // Generate unique ID from path or use custom name
-    final dbId = name != null ? _sanitizeId(name) : _generateIdFromPath(dbPath);
+    final dbId = webDebugName != null ? _sanitizeId(webDebugName) : _generateIdFromPath(dbPath);
 
     // Update port if specified
-    if (port != null) {
-      WorkbenchServer.instance.updatePort(port);
+    if (webDebugPort != null) {
+      WorkbenchServer.instance.updatePort(webDebugPort);
     }
 
     // Register database with workbench server
@@ -35,7 +44,7 @@ extension DatabaseWorkbench on Database {
       dbId: dbId,
       database: this,
       dbPath: dbPath,
-      name: name ?? path.basename(dbPath),
+      name: webDebugName ?? path.basename(dbPath),
     );
   }
 

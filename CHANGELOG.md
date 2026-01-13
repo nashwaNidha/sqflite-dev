@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2026-01-12
+
+### Added
+- Added `webDebug` parameter to `enableWorkbench()` extension method for enable/disable control
+- Added `webDebugName` and `webDebugPort` parameters to `enableWorkbench()` for API consistency
+
+### Changed
+- `enableWorkbench()` now uses consistent parameter names (`webDebug`, `webDebugName`, `webDebugPort`)
+- Updated example to use direct `enableWorkbench()` method instead of helper class
+- Both `enableWorkbench()` and `WorkbenchHelper.autoEnable()` now have identical functionality
+
 ## [1.0.5] - 2026-01-12
 
 ### Added

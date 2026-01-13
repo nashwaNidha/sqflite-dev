@@ -32,8 +32,9 @@ class WorkbenchHelper {
   }) {
     if (webDebug) {
       database.enableWorkbench(
-        name: webDebugName,
-        port: webDebugPort,
+        webDebug: webDebug,
+        webDebugName: webDebugName,
+        webDebugPort: webDebugPort,
       );
     }
   }

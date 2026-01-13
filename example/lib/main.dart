@@ -260,9 +260,8 @@ class DatabaseHelper {
       onUpgrade: _onUpgrade,
     );
 
-    // Enable workbench automatically (similar to sqflite_orm's webDebug option)
-    WorkbenchHelper.autoEnable(
-      _database!,
+    // Enable workbench
+    _database?.enableWorkbench(
       webDebug: true,
       webDebugPort: 8080,
       webDebugName: 'TodosDB',
